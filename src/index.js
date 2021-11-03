@@ -3,8 +3,8 @@ const github = require("@actions/github");
 const fs = require("fs");
 const yamlFront = require("yaml-front-matter");
 
-const inputDirectory = "./release";
-const outputFilename = "release.json";
+const inputDirectory = "./demo";
+const outputFilename = "demo.json";
 
 try {
   const files = fs.readdirSync(`${inputDirectory}`);
