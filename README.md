@@ -8,6 +8,10 @@ This action creates a json array of objects from markdown metadata.
 
 **Required** The path to the directory containing markdown files.
 
+## `content-field`
+
+The name of te field containing everything after the metadata. Defaults to `content`
+
 ## Outputs
 
 ## `output`
@@ -20,3 +24,4 @@ uses: actions/checkout@v2
 uses: yzalvin/action-yaml-front-matter@v1
 with:
   input-directory: './demo'
+  content-field: 'description'
