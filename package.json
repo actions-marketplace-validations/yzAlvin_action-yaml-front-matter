@@ -1,0 +1,25 @@
+{
+  "name": "action-yaml-front-matter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yzAlvin/action-yaml-front-matter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yzAlvin/action-yaml-front-matter/issues"
+  },
+  "homepage": "https://github.com/yzAlvin/action-yaml-front-matter#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "@vercel/ncc": "^0.31.1"
+  }
+}
