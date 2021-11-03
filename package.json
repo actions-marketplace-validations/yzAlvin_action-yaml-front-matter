@@ -20,7 +20,6 @@
   "homepage": "https://github.com/yzAlvin/action-yaml-front-matter#readme",
   "dependencies": {
     "@actions/core": "^1.6.0",
-    "@actions/github": "^5.0.0",
     "@vercel/ncc": "^0.31.1",
     "yaml-front-matter": "^4.1.1"
   }
