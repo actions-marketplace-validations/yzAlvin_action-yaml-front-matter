@@ -1,30 +1,30 @@
 [
   {
-    name: Angular,
-    date: 2021-11-05T00:00:00.000Z,
-    slug: angular,
-    tldr: a web compiler,
-    content: nn# Googlenndeveloped the angular frameworknnit is **RED**n
+    "name": "Angular",
+    "date": "2021-11-05T00:00:00.000Z",
+    "slug": "angular",
+    "tldr": "a web compiler",
+    "content": "\n\n# Google\n\ndeveloped the angular framework\n\nit is **RED**\n"
   },
   {
-    name: React,
-    date: 2021-11-02T00:00:00.000Z,
-    slug: react,
-    tldr: library from Facebook,
-    content: nnreact is popularnn## whynnbig community
+    "name": "React",
+    "date": "2021-11-02T00:00:00.000Z",
+    "slug": "react",
+    "tldr": "library from Facebook",
+    "content": "\n\nreact is popular\n\n## why\n\nbig community"
   },
   {
-    name: Svelte,
-    date: 2021-11-01T00:00:00.000Z,
-    slug: svelte,
-    tldr: a web compiler,
-    content: nnSvelte is pretty coolnn* fast
+    "name": "Svelte",
+    "date": "2021-11-01T00:00:00.000Z",
+    "slug": "svelte",
+    "tldr": "a web compiler",
+    "content": "\n\nSvelte is pretty cool\n\n* fast"
   },
   {
-    name: Vue,
-    date: 2020-11-01T00:00:00.000Z,
-    slug: vue,
-    tldr: a web compiler,
-    content: nn* byn* Evann* Youn
+    "name": "Vue",
+    "date": "2020-11-01T00:00:00.000Z",
+    "slug": "vue",
+    "tldr": "a web compiler",
+    "content": "\n\n* by\n* Evan\n* You\n"
   }
 ]
