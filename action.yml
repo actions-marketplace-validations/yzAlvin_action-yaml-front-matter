@@ -5,6 +5,10 @@ inputs:
   input-directory:
     description: "Directory containing markdown files"
     required: true
+  content-field:
+    description: "Name of field containing everything other than metadata"
+    required: false
+    default: "content"
 outputs:
   output:
     description: "json array of objects containing metadata"

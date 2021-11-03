@@ -10,11 +10,13 @@ try {
     fs.readFileSync(`${inputDirectory}/${file}`)
   );
 
+  const nameOfContentField = core.getInput("content-field");
   const results = contents.map((content) =>
-    yamlFront.loadFront(content, { contentKeyName: "content" })
+    yamlFront.loadFront(content, { contentKeyName: nameOfContentField })
   );
 
-  core.setOutput("output", JSON.stringify(results, null, 2));
+  const json = JSON.stringify(results, null, 2);
+  core.setOutput("output", json);
 } catch (error) {
   core.setFailed(error.message);
 }
