@@ -12621,8 +12621,8 @@ const github = __nccwpck_require__(5438);
 const fs = __nccwpck_require__(5747);
 const yamlFront = __nccwpck_require__(7774);
 
-const inputDirectory = "./release";
-const outputFilename = "release.json";
+const inputDirectory = "./demo";
+const outputFilename = "demo.json";
 
 try {
   const files = fs.readdirSync(`${inputDirectory}`);
