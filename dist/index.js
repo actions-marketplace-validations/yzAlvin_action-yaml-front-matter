@@ -12621,10 +12621,10 @@ const github = __nccwpck_require__(5438);
 const fs = __nccwpck_require__(5747);
 const yamlFront = __nccwpck_require__(7774);
 
-const inputDirectory = "./demo";
 const outputFilename = "demo.json";
 
 try {
+  const inputDirectory = core.getInput("input-directory");
   const files = fs.readdirSync(`${inputDirectory}`);
 
   const contents = files.map((file) =>

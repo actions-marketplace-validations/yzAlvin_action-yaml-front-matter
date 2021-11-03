@@ -3,10 +3,10 @@ const github = require("@actions/github");
 const fs = require("fs");
 const yamlFront = require("yaml-front-matter");
 
-const inputDirectory = "./demo";
 const outputFilename = "demo.json";
 
 try {
+  const inputDirectory = core.getInput("input-directory");
   const files = fs.readdirSync(`${inputDirectory}`);
 
   const contents = files.map((file) =>
