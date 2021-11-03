@@ -14,11 +14,11 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The JSON is\n ${{ steps.hello.outputs.output }}"
-      - name: Commit
-        run: |
-          echo '${{ steps.hello.outputs.output }}' > demo.json
-          git config user.email "actions@github.com"
-          git config user.name "hehe"
-          git add --all
-          git commit -m "Update json" || echo "No changes to commit"
-          git push
+      # - name: Commit
+      #   run: |
+      #     echo '${{ steps.hello.outputs.output }}' > demo.json
+      #     git config user.email "actions@github.com"
+      #     git config user.name "hehe"
+      #     git add --all
+      #     git commit -m "Update json" || echo "No changes to commit"
+      #     git push
