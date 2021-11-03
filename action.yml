@@ -4,13 +4,9 @@ inputs:
   input-directory:
     description: "Directory containing markdown"
     required: true
-  who-to-greet: # id of input
-    description: "Who to greet"
-    required: true
-    default: "World"
 outputs:
-  time: # id of output
-    description: "The time we greeted you"
+  output:
+    description: "json of the input"
 runs:
   using: "node12"
   main: "dist/index.js"

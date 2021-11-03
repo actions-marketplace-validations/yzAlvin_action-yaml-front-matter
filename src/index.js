@@ -6,7 +6,8 @@ const yamlFront = require("yaml-front-matter");
 const outputFilename = "demo.json";
 
 try {
-  const inputDirectory = core.getInput("input-directory");
+  // const inputDirectory = core.getInput("input-directory");
+  const inputDirectory = "./demo";
   const files = fs.readdirSync(`${inputDirectory}`);
 
   const contents = files.map((file) =>
@@ -17,18 +18,9 @@ try {
     yamlFront.loadFront(content, { contentKeyName: "content" })
   );
 
-  fs.writeFileSync(outputFilename, JSON.stringify(results, null, 2));
-
+  // fs.writeFileSync(outputFilename, JSON.stringify(results, null, 2));
   console.log(JSON.stringify(results, null, 2));
-
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput("who-to-greet");
-  console.log(`Hello ${nameToGreet}!`);
-  const time = new Date().toTimeString();
-  core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payload}`);
+  core.setOutput("output", JSON.stringify(results, null, 2));
 } catch (error) {
   core.setFailed(error.message);
 }

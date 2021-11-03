@@ -14,11 +14,10 @@ jobs:
           input-directory: "./demo"
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
-      - name: check for changes
-        run: git status
+        run: echo "The time was ${{ steps.hello.outputs.output }}"
       - name: Commit
         run: |
+          echo ${{ steps.hello.outputs.output }} > demo.json
           git config user.email "actions@github.com"
           git config user.name "hehe"
           git add --all
