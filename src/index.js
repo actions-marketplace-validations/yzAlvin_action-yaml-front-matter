@@ -17,7 +17,7 @@ try {
     yamlFront.loadFront(content, { contentKeyName: "content" })
   );
 
-  // fs.writeFileSync(outputFilename, JSON.stringify(results, null, 2));
+  fs.writeFileSync(outputFilename, JSON.stringify(results, null, 2));
 
   console.log(JSON.stringify(results, null, 2));
 
