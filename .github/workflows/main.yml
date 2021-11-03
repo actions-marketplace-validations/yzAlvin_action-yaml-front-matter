@@ -16,7 +16,7 @@ jobs:
         run: echo "The JSON is\n ${{ steps.hello.outputs.output }}"
       - name: Commit
         run: |
-          echo "${{ steps.hello.outputs.output }}" > demo.json
+          echo '${{ steps.hello.outputs.output }}' > demo.json
           git config user.email "actions@github.com"
           git config user.name "hehe"
           git add --all
