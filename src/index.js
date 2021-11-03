@@ -1,13 +1,9 @@
 const core = require("@actions/core");
-const github = require("@actions/github");
 const fs = require("fs");
 const yamlFront = require("yaml-front-matter");
 
-const outputFilename = "demo.json";
-
 try {
-  // const inputDirectory = core.getInput("input-directory");
-  const inputDirectory = "./demo";
+  const inputDirectory = core.getInput("input-directory");
   const files = fs.readdirSync(`${inputDirectory}`);
 
   const contents = files.map((file) =>
@@ -18,8 +14,6 @@ try {
     yamlFront.loadFront(content, { contentKeyName: "content" })
   );
 
-  // fs.writeFileSync(outputFilename, JSON.stringify(results, null, 2));
-  console.log(JSON.stringify(results, null, 2));
   core.setOutput("output", JSON.stringify(results, null, 2));
 } catch (error) {
   core.setFailed(error.message);

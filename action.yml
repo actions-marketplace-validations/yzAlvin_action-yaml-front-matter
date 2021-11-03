@@ -11,4 +11,3 @@ outputs:
 runs:
   using: "node12"
   main: "dist/index.js"
-  post: "commit.sh '${{ steps.hello.outputs.output }}'"
