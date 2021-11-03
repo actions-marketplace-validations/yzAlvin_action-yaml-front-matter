@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo '${{ steps.hello.outputs.output }}' > demo.json
+echo $1 > demo.json
 git config user.email "actions@github.com"
 git config user.name "hehe"
 git add --all
