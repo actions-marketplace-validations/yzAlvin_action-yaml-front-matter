@@ -1,13 +1,13 @@
-name: "Hello World"
+name: "Markdown metadata to JSON"
 author: "yzAlvin"
-description: "Greet someone and record the time"
+description: "Turn a collection of markdown with metadata to a json object"
 inputs:
   input-directory:
-    description: "Directory containing markdown"
+    description: "Directory containing markdown files"
     required: true
 outputs:
   output:
-    description: "json of the input"
+    description: "json array of objects containing metadata"
 runs:
   using: "node12"
   main: "dist/index.js"

@@ -1,20 +1,19 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  markdown_metadata_to_json_job:
     runs-on: ubuntu-latest
     name: Create json from markdown
     steps:
       - uses: actions/checkout@v2
-      - name: json from markdown action step
+      - name: Generate JSON from Markdown step
         id: hello
         uses: yzalvin/action-yaml-front-matter@v1
         with:
           input-directory: "./demo"
-      # Use the output from the `hello` step
-      - name: Get the output time
+      - name: Print the output
         run: echo "The JSON is\n ${{ steps.hello.outputs.output }}"
-      - name: Commit
+      - name: Commit files
         run: |
           echo '${{ steps.hello.outputs.output }}' > demo.json
           git config user.email "actions@github.com"
