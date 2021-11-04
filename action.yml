@@ -1,20 +1,20 @@
-name: "Markdown metadata to JSON"
+name: "Front Matter to JSON Action"
 author: "yzAlvin"
-description: "Turn a collection of markdown with metadata to a json object"
+description: "Parse a folder of files containing yaml front matter to a json array"
 inputs:
   input-directory:
     description: "Directory containing markdown files"
     required: true
   content-field:
-    description: "Name of field containing everything other than metadata"
+    description: "Name of field containing everything after yaml front matter"
     required: false
     default: "content"
 outputs:
   output:
-    description: "json array of objects containing metadata"
+    description: "json array containing front matter + everything after"
 runs:
   using: "node12"
   main: "dist/index.js"
 branding:
-  icon: 'book-open'
-  color: 'blue'
+  icon: "book-open"
+  color: "blue"
