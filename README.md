@@ -1,6 +1,6 @@
 # Front Matter to JSON Action
 
-Parse the front matter of files in a directory into a JSON array.
+Parse the front matter (markdown metadata) of files in a directory into a JSON array.
 
 This action outputs a JSON array which can be commited as a file, and is useful for CI purposes.
 
