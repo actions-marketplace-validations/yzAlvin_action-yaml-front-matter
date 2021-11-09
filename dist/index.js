@@ -5854,7 +5854,17 @@ const core = __nccwpck_require__(2186);
 const fs = __nccwpck_require__(5747);
 const yamlFront = __nccwpck_require__(7774);
 
+function escapeHtml(unsafe) {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 try {
+  // const inputDirectory = "./demo2";
   const inputDirectory = core.getInput("input-directory");
   const files = fs.readdirSync(`${inputDirectory}`);
 
@@ -5863,12 +5873,18 @@ try {
   );
 
   const nameOfContentField = core.getInput("content-field");
+  // const nameOfContentField = "description";
   const results = contents.map((content) =>
     yamlFront.loadFront(content, { contentKeyName: nameOfContentField })
   );
 
-  const json = JSON.stringify(results, null, 2);
+  const escapedResults = results.map((r) => {
+    return { ...r, [nameOfContentField]: escapeHtml(r[nameOfContentField]) };
+  });
+
+  const json = JSON.stringify(escapedResults, null, 2);
   core.setOutput("output", json);
+  // console.log("output", json);
 } catch (error) {
   core.setFailed(error.message);
 }
