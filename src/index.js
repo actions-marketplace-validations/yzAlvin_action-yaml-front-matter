@@ -1,35 +1,59 @@
 const core = require("@actions/core");
 const fs = require("fs");
 const yamlFront = require("yaml-front-matter");
+const glob = require("glob");
 
-function escapeHtml(unsafe) {
-  return unsafe
-    .replace(/&/g, "/&")
-    .replace(/</g, "/<")
-    .replace(/>/g, "/>")
-    .replace(/"/g, '/"')
-    .replace(/'/g, "/'");
+function main() {
+  try {
+    // const inputDirectory = "./demo*";
+    const inputDirectory = core.getInput("input-directory");
+
+    const jsonRelativePaths = getGlobbedPaths(inputDirectory);
+
+    const json = jsonRelativePaths.map(processDir);
+
+    // fs.writeFileSync("a", JSON.stringify(json, null, 2));
+    // console.log("out", json);
+    core.setOutput("output", json);
+  } catch (error) {
+    core.setFailed(error.message);
+  }
+
+  function processDir(dir) {
+    const contents = readDirectory(dir);
+    const results = contentToJSON(contents);
+    return results;
+  }
 }
 
-try {
-  const inputDirectory = core.getInput("input-directory");
+function getGlobbedPaths(inputDirectory) {
+  return inputDirectory.split(",").reduce((accum, current) => {
+    if (current.indexOf("*") === -1) {
+      return [...accum, current];
+    }
+
+    const globFormula = current.replace(/\\/, "/");
+    const expandedGlob = glob.sync(globFormula, {});
+    return [...accum, ...expandedGlob];
+  }, []);
+}
+
+function contentToJSON(contents) {
+  const nameOfContentField = core.getInput("content-field");
+  // const nameOfContentField = "description";
+  const results = contents.map((content) =>
+    yamlFront.loadFront(content, { contentKeyName: nameOfContentField })
+  );
+  return results;
+}
+
+function readDirectory(inputDirectory) {
   const files = fs.readdirSync(`${inputDirectory}`);
 
   const contents = files.map((file) =>
     fs.readFileSync(`${inputDirectory}/${file}`)
   );
-
-  const nameOfContentField = core.getInput("content-field");
-  const results = contents.map((content) =>
-    yamlFront.loadFront(content, { contentKeyName: nameOfContentField })
-  );
-
-  const escapedResults = results.map((r) => {
-    return { ...r, [nameOfContentField]: escapeHtml(r[nameOfContentField]) };
-  });
-
-  const json = JSON.stringify(escapedResults, null, 2);
-  core.setOutput("output", json);
-} catch (error) {
-  core.setFailed(error.message);
+  return contents;
 }
+
+main();
