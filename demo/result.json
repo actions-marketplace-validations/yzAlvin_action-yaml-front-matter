@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Angular",
+    "date": "2021-11-05T00:00:00.000Z",
+    "slug": "angular",
+    "tldr": "a web compiler",
+    "description": "\n\n# Google\n\ndeveloped the angular framework\n\nit is **RED**\n"
+  },
+  {
+    "name": "React",
+    "date": "2021-11-02T00:00:00.000Z",
+    "slug": "react",
+    "tldr": "library from Facebook",
+    "description": "\n\nreact is popular\n\n## why\n\nbig community"
+  },
+  {
+    "name": "Svelte",
+    "date": "2021-11-01T00:00:00.000Z",
+    "slug": "svelte",
+    "tldr": "a web compiler",
+    "description": "\n\nSvelte is pretty cool\n\n* fast"
+  },
+  {
+    "name": "Vue",
+    "date": "2020-11-01T00:00:00.000Z",
+    "slug": "vue",
+    "tldr": "a web compiler",
+    "description": "\n\n* by\n* Evan\n* You\n"
+  }
+]
