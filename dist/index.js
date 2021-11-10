@@ -9223,12 +9223,12 @@ const glob = __nccwpck_require__(1957);
 
 function main() {
   try {
-    // const inputDirectory = "./demo*";
+    // const inputDirectory = "./demo";
     const inputDirectory = core.getInput("input-directory");
 
-    const jsonRelativePaths = getGlobbedPaths(inputDirectory);
+    // const jsonRelativePaths = getGlobbedPaths(inputDirectory);
 
-    const json = jsonRelativePaths.map(processDir);
+    const json = processDir(inputDirectory);
 
     // fs.writeFileSync("a", JSON.stringify(json, null, 2));
     // console.log("out", json);
@@ -9266,7 +9266,9 @@ function contentToJSON(contents) {
 }
 
 function readDirectory(inputDirectory) {
-  const files = fs.readdirSync(`${inputDirectory}`);
+  const files = fs
+    .readdirSync(`${inputDirectory}`)
+    .filter((fn) => fn.endsWith(".md"));
 
   const contents = files.map((file) =>
     fs.readFileSync(`${inputDirectory}/${file}`)
