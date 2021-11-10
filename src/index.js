@@ -14,7 +14,7 @@ function main() {
 
     // fs.writeFileSync("a", JSON.stringify(json, null, 2));
     // console.log("out", json);
-    core.setOutput("output", json);
+    core.setOutput("output", JSON.stringify(json, null, 2));
   } catch (error) {
     core.setFailed(error.message);
   }
