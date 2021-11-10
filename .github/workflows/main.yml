@@ -19,12 +19,12 @@ jobs:
       - name: Print the output
         run: echo "The JSON is\n ${{ steps.demo.outputs.output }}"
 
-      # - name: Commit files
-      #   run: |
-      #     echo '${{ steps.demo1.outputs.output }}' > './demo/result.json'
-      #     echo '${{ steps.demo2.outputs.output }}' > './demo2/result.json'
-      #     git config user.email "actions@github.com"
-      #     git config user.name "hehe"
-      #     git add --all
-      #     git commit -m "Update json" || echo "No changes to commit"
-      #     git push
+      - name: build jsons
+        run: ./create.sh
+      - name: Commit files
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "hehe"
+          git add --all
+          git commit -m "Update json" || echo "No changes to commit"
+          git push
