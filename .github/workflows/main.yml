@@ -20,7 +20,7 @@ jobs:
         run: echo "The JSON is\n ${{ steps.demo.outputs.output }}"
 
       - name: build jsons
-        run: ./create.sh
+        run: ./create.sh ${{ steps.demo.outputs.output }}
       - name: Commit files
         run: |
           git config user.email "actions@github.com"
